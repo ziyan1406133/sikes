@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Bulan;
 use Illuminate\Http\Request;
-use App\Pengeluaran;
 use App\Uang;
-use App\Jenisk;
 use App\Rutin;
 
 class PengeluaranRutinController extends Controller
@@ -178,7 +176,7 @@ class PengeluaranRutinController extends Controller
      */
     public function destroy($id)
     {
-        $rutin = Pengeluaran::findOrFail($id);
+        $rutin = Rutin::findOrFail($id);
         
         $uang = Uang::orderBy('id', 'asc')->first();
         $uang->keluar = $uang->keluar - $rutin->jumlah;
